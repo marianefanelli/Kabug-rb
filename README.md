@@ -8,6 +8,7 @@ repositório do projeto Kabug com cucumber, capybara e ruby
 ### Instalar o Bundler
 `
 gem install bundler
+`
 
 ### Instalar as depêndencias no projeto
 `
@@ -17,9 +18,9 @@ bunddle install
 ### Executar localmente(minha máquina)
 `
 bundle exec cucumber
-´
+`
 
 ### Executar no servidor de CI(Gerando reports Json)
-´
+`
 bundle exec cucumber -p CI
-´
+`

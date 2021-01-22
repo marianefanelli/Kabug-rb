@@ -1,7 +1,7 @@
 pipeline{
     agent{  //antes tava any (qualquer agente)
         docker{  // estou dizendo que quero um agente docker
-            image 'rubywd'   // que tenha a imagem ruby, ou seja quero um container que tenha ruby instalado
+            image 'qaninja/rubywd'   // que tenha a imagem ruby, ou seja quero um container que tenha ruby instalado
         }
     }
     

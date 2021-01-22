@@ -19,6 +19,9 @@ pipeline{
         stage('Test'){
             steps{
                 echo 'Running regression tests'
+                sh 'bundle exec cucumber -p ci' // para executar com o parâmetro CI em Headless, Jenkins tem q ser em headless
+                // no windows pode por só cucumber -p ci, mas como o docker é um ambiente linux, nosso container é linux então precisa por o bundle exec na frente
+                
             }
         }
         stage('UAT'){

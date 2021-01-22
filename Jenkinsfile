@@ -1,7 +1,7 @@
 pipeline{
     agent{  //antes tava any (qualquer agente)
         docker{  // estou dizendo que quero um agente docker
-            image 'ruby'   // que tenha a imagem ruby, ou seja quero um container que tenha ruby instalado
+            image 'rubywd'   // que tenha a imagem ruby, ou seja quero um container que tenha ruby instalado
         }
     }
     
@@ -21,7 +21,6 @@ pipeline{
                 echo 'Running regression tests'
                 sh 'bundle exec cucumber -p ci' // para executar com o parâmetro CI em Headless, Jenkins tem q ser em headless
                 // no windows pode por só cucumber -p ci, mas como o docker é um ambiente linux, nosso container é linux então precisa por o bundle exec na frente
-                
             }
         }
         stage('UAT'){

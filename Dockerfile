@@ -5,6 +5,8 @@
 FROM ruby:2.6.5-stretch
 ## estou dizendo que nesta imagem quero o ruby instalado na versão 2.6.5
 
+# Comandos em linux, pq o docker é um ambiente linux
+
 RUN echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/90qaninja \
   && echo 'DPkg::Options "--force-confnew";' >> /etc/apt/apt.conf.d/90qaninja
 

@@ -13,7 +13,7 @@ pipeline{
         stage('Build'){
             steps{
                 echo 'Building or Resolve Dependencies!'
-                sh 'bunddle install' // executa uma shell = sh 'shell'  
+                sh 'bundle install' // executa uma shell = sh 'shell'  
             }
         }
         stage('Test'){

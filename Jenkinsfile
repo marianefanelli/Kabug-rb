@@ -21,8 +21,14 @@ pipeline{
             steps{
                 echo 'Running regression tests' 
                 sh 'bundle exec cucumber -p ci' // para executar com o parâmetro CI em Headless, Jenkins tem q ser em headless
-                // no windows pode por só cucumber -p ci, mas como o docker é um ambiente linux, nosso container é linux então precisa por o bundle exec na frente
-                cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'logs', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+                // no windows pode por só cucumber -p ci, mas como o docker é um ambiente linux, nosso container é linux então precisa por o bundle exec na frente    
+            }
+            post{ // diretiva que define etapas adicionais
+                always{
+                    // codigo abaixo é do cucumber report
+                    cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'logs', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+                    //always - sempre execute um conjunto de steps após o desfecho/final das steps
+                }
             }
         }
         stage('UAT'){
